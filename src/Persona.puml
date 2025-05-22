@@ -1,27 +1,54 @@
 @startuml
-'https://plantuml.com/class-diagram
 
-abstract class AbstractList
-abstract AbstractCollection
-interface List
-interface Collection
-
-List <|-- AbstractList
-Collection <|-- AbstractCollection
-
-Collection <|- List
-AbstractCollection <|- AbstractList
-AbstractList <|-- ArrayList
-
-class ArrayList {
-Object[] elementData
-size()
+class Persona {
+  - cedula: String
+  - nombre: String
+  - direccion: String
+  - correo: String
+  - telefono: String
+  + mostrarInformacion(): void
 }
 
-enum TimeUnit {
-DAYS
-HOURS
-MINUTES
+class Estudiante {
+  - carrera: String
+  - nivel: String
+  + calcularEdad(): void
+  + mostrarInformacion(): void
+
 }
+
+class Docente {
+  - facultad: String
+  - horasClase: int
+
+  + mostrarInformacion(): void
+
+}
+
+class EstudiantePresencial{
+ -horasPresenciales: int
+ -horario: String
+ + calcularEdad(): void
+ + mostrarInformacion(): void
+}
+class EstudianteVirtual{
+ -plataforma: String
+ -tutorVirtual: String
+ + calcularEdad(): void
+ + mostrarInformacion(): void
+}
+
+class DocenteEnLinea{
+
+- tipoContrato: String
++ mostrarInformacion(): void
+
+}
+
+Persona <|-- Estudiante
+Persona <|-- Docente
+
+Estudiante <|-- EstudiantePresencial
+Estudiante <|-- EstudianteVirtual
 
 @enduml
